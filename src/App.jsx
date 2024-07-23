@@ -1,8 +1,11 @@
 import ManageContents from "./components/ManageContents"
+import ContentProvider from "./ContentContext"
 
 function App() {
   return (
-    <ManageContents/>
+    <ContentProvider>
+      <ManageContents/>
+    </ContentProvider>
   )
 }
 

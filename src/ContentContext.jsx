@@ -11,7 +11,7 @@ export default function ContentProvider ({children}){
     ])
 
     return(
-        <ContentContext.Provider value= {{contents, setContents}}>
+        <ContentContext.Provider value={{ contents, setContents }}>
             {children}
         </ContentContext.Provider>
     )
