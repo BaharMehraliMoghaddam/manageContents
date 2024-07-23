@@ -18,10 +18,10 @@ export default function AddContentsForm() {
         console.log("Form submitted", values);
         // Rst
         const newTodo = {
-          name: values.name,
-          lastname: values.lastname,
-          phnum: values.phnum,
-          relationship: values.relationship,
+          contentName: values.name,
+          lastName: values.lastname,
+          phoneNum: values.phnum,
+          ship: values.relationship,
           email: values.email,
         };
         
