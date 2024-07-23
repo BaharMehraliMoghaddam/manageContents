@@ -65,7 +65,6 @@ export default function AddContentsForm() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <span className="text-red-500">{errors.name}</span>
-              <span className="text-red-500">{errors.name}</span>
             </div>
             <div className="mb-4">
               <label htmlFor="lastname" className="block text-gray-700">
