@@ -14,28 +14,3 @@ export default function ContentProvider({ children }) {
   );
 }
 
-///l7:
-/*{
-      id: 1,
-      contentName: "user test",
-      lastName: "user L test",
-      phoneNum: "09215767899",
-      ship: "friend",
-      email: "test@gmail.com",
-    },
-    {
-      id: 2,
-      contentName: "user test",
-      lastName: "user L test",
-      phoneNum: "09215767899",
-      ship: "friend",
-      email: "test@gmail.com",
-    },
-    {
-      id: 3,
-      contentName: "user test",
-      lastName: "user L test",
-      phoneNum: "09215767899",
-      ship: "friend",
-      email: "test@gmail.com",
-    },*/
