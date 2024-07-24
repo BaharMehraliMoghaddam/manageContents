@@ -31,7 +31,7 @@ export default function TodoCard({
 
   return (
     <div className="flex w-full items-center justify-center">
-      <div className="flex items-center justify-center flex-col border border-gray-300 w-fit p-4 rounded-md">
+      <div className="w-full max-w-md mx-auto mt-10">
         <div className="w-full px-3 py-2 border border-gray-300 rounded-md">
           <p>{name}</p>
           <p>{lastName}</p>

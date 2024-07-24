@@ -11,7 +11,7 @@ export default function ManageContents() {
       <div className="m-4">
       <AddContentsForm />
       </div>
-      <div className="flex flex-col items-center justify-center mt-4 gap-2">
+      <div className="flex flex-col items-center justify-center m-4">
         {contents.map((content) => (
           <TodoCard
             key={content.id}
