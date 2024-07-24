@@ -8,8 +8,10 @@ export default function ManageContents() {
 
   return (
     <>
+      <div className="m-4">
       <AddContentsForm />
-      <div className="flex flex-col items-center justify-center">
+      </div>
+      <div className="flex flex-col items-center justify-center mt-4 gap-2">
         {contents.map((content) => (
           <TodoCard
             key={content.id}

@@ -32,14 +32,14 @@ export default function TodoCard({
   return (
     <div className="flex w-full items-center justify-center">
       <div className="flex items-center justify-center flex-col border border-gray-300 w-fit p-4 rounded-md">
-        <div className="flex items-start justify-center gap-3">
+        <div className="w-full px-3 py-2 border border-gray-300 rounded-md">
           <p>{name}</p>
           <p>{lastName}</p>
           <p>{PhoneNum}</p>
           <p>{relationShip}</p>
           <p>{email}</p>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-3 gap-3">
           <button
             className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded"
             onClick={openModal}
