@@ -101,10 +101,10 @@ export default function AddContentsForm() {
                 <option value="" disabled>
                   نسبت
                 </option>
-                <option value="nucler-family">اعضای خانواده</option>
-                <option value="friend">دوست</option>
-                <option value="college">همکار</option>
-                <option value="family">فامیل</option>
+                <option value="اعضای خانواده">اعضای خانواده</option>
+                <option value="دوست">دوست</option>
+                <option value="همکار">همکار</option>
+                <option value="فامیل">فامیل</option>
               </Field>
             </div>
             <div className="mb-4">
