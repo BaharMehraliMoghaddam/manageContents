@@ -2,7 +2,7 @@ import { Field, Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import * as Yup from "yup";
 import { ContentContext } from "../ContentContext";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 export default function AddContentsForm() {
   const contextData = useContext(ContentContext);
@@ -23,9 +23,9 @@ export default function AddContentsForm() {
           ship: values.relationship,
           email: values.email,
         };
-        
+
         contextData.setContents([...contextData.contents, newTodo]);
-        toast.success("Card added successfully");
+        toast.success("مخاطب با موفقیت اضافه شد");
       }}
       validationSchema={Yup.object({
         name: Yup.string("فیلد مرتبط با نام باید تنها شامل حروف الفبا باشد")

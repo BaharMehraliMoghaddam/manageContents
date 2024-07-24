@@ -8,27 +8,24 @@ export default function ManageContents() {
 
   return (
     <>
-    <AddContentsForm/>
-    <div className="flex flex-col items-center justify-center">
-      {contents.map((content) => (
-        <TodoCard
-          key={content.id}
-          id={content.id}
-          name={content.name}
-          lastName={content.lastName}
-          PhoneNum={content.PhoneNum}
-          relationShip={content.relationShip}
-          email={content.email}
-        />
-      ))}
-    </div>
+      <AddContentsForm />
+      <div className="flex flex-col items-center justify-center">
+        {contents.map((content) => (
+          <TodoCard
+            key={content.id}
+            id={content.id}
+            name={content.contentName}
+            lastName={content.lastName}
+            PhoneNum={content.phoneNum}
+            relationShip={content.ship} 
+            email={content.email}
+          />
+        ))}
+      </div>
     </>
   );
 }
-
-
-
-  /*export default function ManageContents() {
+/*export default function ManageContents() {
     const contextData= useContext(ContentContext)
     return (
       <>

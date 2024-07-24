@@ -25,7 +25,7 @@ export default function TodoCard({
 
   const deleteTodo = (id) => {
     setContents(contents.filter(item => item.id !== id));
-    toast.success("Card deleted successfully");
+    toast.success("مخاطب با موفقیت حذف شد");
     closeModal();
   }
 
