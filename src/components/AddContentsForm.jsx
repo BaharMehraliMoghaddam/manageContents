@@ -123,7 +123,7 @@ export default function AddContentsForm() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="w-full md:w-auto px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                className="w-full font-bold md:w-auto px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
               >
                 اضافه کردن
               </button>
