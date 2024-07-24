@@ -43,6 +43,7 @@ export default function AddContentsForm() {
           .required("فیلد مرتبط با شماره تلفن خالی است")
           .min(11, "شماره تلفن باید ۱۱ رقم باشد")
           .max(11, "شماره تلفن باید ۱۱ رقم باشد"),
+        relationship: Yup.string("لطفا یک نسبت معتبر انتخاب کنید").required("لطفا یک نسبت معتبر انتخاب کنید"),
         email: Yup.string("ایمیل معتبر نیست")
           .required("فیلد مربوط به ایمیل خالی است")
           .email("ایمیل معتبر نیست"),
@@ -113,7 +114,7 @@ export default function AddContentsForm() {
               <Field
                 id="email"
                 name="email"
-                type="email"
+                //type="email"
                 placeholder="content@example.com"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
