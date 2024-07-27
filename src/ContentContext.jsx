@@ -1,49 +1,22 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useQuery } from 'react-query';
+import axios from 'axios';
 
 export const ContentContext = createContext();
 
+const fetchContents = async () => {
+  const { data } = await axios.get('http://localhost:3000/users');
+  return data;
+};
+
 export default function ContentProvider({ children }) {
-  const [contents, setContents] = useState([]);
-  const [editContent, setEditContent] = useState(null);
-console.log(contents);
-  const updateContent = (updatedContent) => {
-    console.log(updatedContent);
-    setContents((prevState) =>
-      prevState.map((content) =>
-        content.id === updatedContent.id
-          ? {...content, ...updatedContent}
-          : content
-      )
-    );
-  };
+  const { data: contents, refetch } = useQuery('contents', fetchContents, {
+    initialData: [],
+  });
 
   return (
-    <ContentContext.Provider
-      value={{
-        contents,
-        setContents,
-        editContent,
-        setEditContent,
-        updateContent,
-      }}
-    >
+    <ContentContext.Provider value={{ contents, refetch }}>
       {children}
     </ContentContext.Provider>
   );
 }
-/*import { createContext, useState } from "react";
-
-export const ContentContext = createContext();
-
-export default function ContentProvider({ children }) {
-  const [contents, setContents] = useState([
-    
-  ]);
-
-  return (
-    <ContentContext.Provider value={{ contents, setContents }}>
-      {children}
-    </ContentContext.Provider>
-  );
-}
-*/
