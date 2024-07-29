@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AddContentsForm from "./AddContentsForm";
-import TodoCard from "./TodoCard";
+//import TodoCard from "./TodoCard";
 import { ContentContext } from "../ContentContext";
 import SearchContent from "./SearchContent";
 
@@ -16,7 +16,12 @@ export default function ManageContents() {
         <SearchContent/>
       </div>
       <div className="flex flex-col items-center justify-center m-4">
-        {contents.map((content) => (
+        
+      </div>
+    </>
+  );
+}
+/*{contents.map((content) => (
           <TodoCard
             key={content.id}
             id={content.id}
@@ -26,11 +31,7 @@ export default function ManageContents() {
             relationShip={content.ship} 
             email={content.email}
           />
-        ))}
-      </div>
-    </>
-  );
-}
+        ))}*/
 /*import React, { useState, useEffect } from "react";  
 import { useMutation } from "react-query";  
 import axios from "axios";  
