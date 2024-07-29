@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import { useMutation } from "react-query";
 import axios from "axios";
 
-// Define the validation schema using Yup
 const schema = yup.object().shape({
   name: yup.string("فیلد مرتبط با نام باید تنها شامل حروف الفبا باشد")
     .required("فیلد مرتبط با نام خالی است")
