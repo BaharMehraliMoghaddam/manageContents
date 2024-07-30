@@ -2,19 +2,19 @@ import { useContext, useState } from "react";
 import { ContentContext } from "../ContentContext";
 import { toast } from "react-toastify";
 import Modal from "react-modal";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
   
 export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, email }) {  
   const { refetch } = useContext(ContentContext);   
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  const queryClient = useQueryClient()
   const mutation = useMutation(
     (id) => axios.delete(`http://localhost:3000/users/${id}`),
     {
       onSuccess: () => {
         toast.success("مخاطب با موفقیت حذف شد");
-        refetch();
+        queryClient.invalidateQueries(["users"])
       },
     }
   );

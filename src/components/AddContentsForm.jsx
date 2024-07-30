@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { ContentContext } from "../ContentContext";
 import { toast } from "react-toastify";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 
 const schema = yup.object().shape({
@@ -48,13 +48,15 @@ export default function AddContentsForm() {
   });
 
   const { refetch } = useContext(ContentContext);
+  const queryClient = useQueryClient()
 
   const mutation = useMutation(
     (newContent) => axios.post("http://localhost:3000/users", newContent),
     {
       onSuccess: () => {
         toast.success("مخاطب با موفقیت اضافه شد");
-        refetch();
+        //refetch();
+        queryClient.invalidateQueries(["users"])
       },
     }
   );
@@ -123,6 +125,7 @@ export default function AddContentsForm() {
           name="phnum"
           render={({ field }) => (
             <input
+              //type="number"
               id="phnum"
               {...field}
               placeholder="09121000100"
