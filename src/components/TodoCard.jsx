@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
   
-export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, email }) {  
+export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, email}) {  
   const { refetch } = useContext(ContentContext);   
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const queryClient = useQueryClient()
@@ -23,6 +23,8 @@ export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, e
     mutation.mutate(id);
     closeModal();
   };
+
+  
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -49,7 +51,9 @@ export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, e
           >
             حذف
           </button>
-          <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">
+          <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded"
+            onClick={onEdit}
+          >
             ویرایش
           </button>
         </div>
