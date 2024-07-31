@@ -14,9 +14,9 @@ export default function ContentProvider({ children }) {
     initialData: [],
   });
   
- /* const [editId , setEditId] = useState(null);
+  const [isEdit , setIsEdit] = useState(null);
 
-  const submitData = (values) => {
+  /*const submitData = (values) => {
       if (editId){
   
       }else{
@@ -37,7 +37,7 @@ export default function ContentProvider({ children }) {
 
 
   return (
-    <ContentContext.Provider value={{ contents, refetch }}>
+    <ContentContext.Provider value={{ contents, refetch, isEdit, setIsEdit }}>
       {children}
     </ContentContext.Provider>
   );

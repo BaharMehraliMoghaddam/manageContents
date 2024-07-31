@@ -12,7 +12,7 @@ export default function ManageContents() {
       <div className="m-4">
       <AddContentsForm />
       </div>
-      <div>
+      <div className="m-4">
         <SearchContent/>
       </div>
       <div className="flex flex-col items-center justify-center m-4">

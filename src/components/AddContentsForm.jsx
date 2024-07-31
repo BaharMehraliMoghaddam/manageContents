@@ -50,7 +50,8 @@ export default function AddContentsForm() {
     },
   });
 
-  const { refetch } = useContext(ContentContext);
+  const { refetch ,isEdit,setIsEdit} = useContext(ContentContext);
+  //react-query add card
   const queryClient = useQueryClient()
 
   const mutation = useMutation(
@@ -64,19 +65,53 @@ export default function AddContentsForm() {
     }
   );
 
+  //react-query edit card
+  const editMutation= useMutation(
+    (editedContent)=> axios.put(`http://localhost:3000/users/${isEdit.id}`, editedContent),
+    {
+      onSuccess:()=>{
+        toast.success("مخاطب با موفقیت ویرایش شد");
+        queryClient.invalidateQueries(["users"])
+      }
+    }
+  )
+  //submit btn
   const onSubmit = (data) => {
-    const newTodo = {
-      id: Date.now(),
-      contentName: data.name,
-      lastName: data.lastname,
-      phoneNum: data.phnum,
-      ship: data.relationship,
-      email: data.email,
-    };
-
-    mutation.mutate(newTodo);
-    reset()
+    if (!isEdit){
+      const newTodo = {
+        id: Date.now(),
+        contentName: data.name,
+        lastName: data.lastname,
+        phoneNum: data.phnum,
+        ship: data.relationship,
+        email: data.email,
+      };
+  
+      mutation.mutate(newTodo);
+      reset()
+    }else{
+      //console.log(isEdit);
+      const editedTodo = {
+        contentName: data.name,
+        lastName: data.lastname,
+        phoneNum: data.phnum,
+        ship: data.relationship,
+        email: data.email,
+      };
+      console.log(data)
+      editMutation.mutate(editedTodo)
+      setIsEdit(null)
+      reset()
+    }
   };
+
+  if(isEdit){
+    setValue("name",isEdit.name)
+    setValue("lastname",isEdit.lastName)
+    setValue("phnum",isEdit.PhoneNum)
+    setValue("relationship",isEdit.relationShip)
+    setValue("email",isEdit.email)
+  }
 
   return (
     <form
@@ -182,7 +217,7 @@ export default function AddContentsForm() {
           type="submit"
           className="w-full font-bold md:w-auto px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
         >
-          اضافه کردن
+          {isEdit? "ویرایش" :" اضافه کردن"}
         </button>
       </div>
     </form>

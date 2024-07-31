@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
   
 export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, email}) {  
-  const { refetch } = useContext(ContentContext);   
+  const { refetch,setIsEdit } = useContext(ContentContext);   
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const queryClient = useQueryClient()
   const mutation = useMutation(
@@ -52,7 +52,7 @@ export default function TodoCard({ id, name, lastName, PhoneNum, relationShip, e
             حذف
           </button>
           <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded"
-            onClick={onEdit}
+            onClick={()=>setIsEdit({ id, name, lastName, PhoneNum, relationShip, email})}
           >
             ویرایش
           </button>
